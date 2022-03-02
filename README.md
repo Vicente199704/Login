@@ -39,6 +39,11 @@ el metodo de registro se basa en un usuario que ya no exista y en que las contra
 
 ![image](https://user-images.githubusercontent.com/96928749/156461701-64017bb4-4070-41df-9ed2-414e37547095.png)
 
+#Estructura Proyecto
+
+![image](https://user-images.githubusercontent.com/96928749/156461930-5e10c32f-1959-46ab-99c6-0f357550df57.png)
+
+
 
 
 
