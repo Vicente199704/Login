@@ -17,23 +17,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ //SI EL METODO DE ENVIO ES POST, ENTO
         $errores = '<li>Por favor rellena todos los datos correctamente </li>';
     }else{
         try{
-            $conexion = new PDO('mysql:host=localhost;dbname=curso_login','root','');
+            $conexion = new PDO('mysql:host=localhost;dbname=curso_login','root',''); //Creando conexion a la base de datos
         }catch(PDOException $e){
             echo "Error: ". $e->getMessage();
         }
 
-        $statement = $conexion -> prepare('SELECT * FROM usuarios WHERE usuario = :usuario LIMIT 1');
+        $statement = $conexion -> prepare('SELECT * FROM usuarios WHERE usuario = :usuario LIMIT 1'); //Usuario obtenido desde el formulario
         $statement->execute(array(':usuario' => $usuario));
         $resultado = $statement->fetch();
 
-        if($resultado != false){ //Existe el usuario
+        if($resultado != false){ //Si Existe el usuario
             $errores = '<li> El nombre de usuario ya existe </li>';
         }
 
-        $password = hash('sha512',$password); //Encriptando contraseñas
+        $password = hash('sha512',$password); //Encriptando contraseñas mediante hash('sha512')
         $password2 = hash('sha512',$password2);
 
-        if($password != $password2){
+        if($password != $password2){ //Las contraseñas DEBEN ser iguales de lo contrario: 
             $errores = '<li> Las contraseñas no son iguales </li>';
         }
       

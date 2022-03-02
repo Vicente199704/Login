@@ -9,12 +9,12 @@ if(isset($_SESSION['usuario'])){
 $errores = '';
 
 if($_SERVER['REQUEST_METHOD']== 'POST'){
-    $usuario = filter_var(strtolower($_POST['usuario']),FILTER_SANITIZE_STRING);
+    $usuario = filter_var(strtolower($_POST['usuario']),FILTER_SANITIZE_STRING); //Realizando filtro par obtener un dato limpio
     $password = $_POST['password'];
     $password = hash('sha512',$password); //encriptando
 
     try{
-        $conexion = new PDO('mysql:host=localhost;dbname=curso_login','root','');
+        $conexion = new PDO('mysql:host=localhost;dbname=curso_login','root',''); //Conexion a BD
     }catch(PDOException $e){
         echo "Error: " .$e->getMessage();
     }
@@ -23,8 +23,8 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
     $statement -> execute(array
     (':usuario'=> $usuario,':password'=>$password));
 
-    $resultado = $statement->fetch();
-    if($resultado !== false){
+    $resultado = $statement->fetch(); 
+    if($resultado !== false){ // Resultado incorrecto, no existe ese usuario o contraseña,  variable errores usa manejo de la misma.
         $_SESSION['usuario'] = $usuario;
         header('Location: index.php');
     }else{

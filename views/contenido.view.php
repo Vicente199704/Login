@@ -18,7 +18,7 @@
 <body>
     <div class="contenedor">
         <h1 class="titulo"> Contenido del Sitio</h1>
-        <a href="cerrar.php">Cerrar Sesion</a>
+        <a href="cerrar.php">Cerrar Sesion</a>  <!--Cerramose sesion y nos manda al login -->
         <hr class="border">
         <div class="contenido">
             <article>

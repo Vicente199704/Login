@@ -1,7 +1,4 @@
-<?php
 
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +30,7 @@
             <i class="submit-btn fa fa-arrow-right" onclick="login.submit()"></i>
         </div>
 
-        <?php if(!empty($errores)): ?>
+        <?php if(!empty($errores)): ?> <!--LLama a la variable errores solo si no esta vacia, si existe algun error nos mostrara un div con ello -->
             <div class="error">
                 <ul>
                    <?php echo $errores; ?>

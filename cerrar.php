@@ -2,7 +2,7 @@
 
 session_start();
 
-session_destroy();
+session_destroy(); 
 
 $_SESSION = array(); //Se limpia la session
 
